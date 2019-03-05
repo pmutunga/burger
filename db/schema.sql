@@ -1,7 +1,8 @@
-### Schema
+-- Schema
 
-CREATE DATABASE IF NOT EXISTS burger_db;
-USE burger_db;
+DROP DATABASE burgers_db;
+CREATE DATABASE burgers_db;
+USE burgers_db;
 
 CREATE TABLE burgers
 (
@@ -10,3 +11,13 @@ CREATE TABLE burgers
 	devoured BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
 );
+
+INSERT INTO burgers (burger_name,devoured) 
+VALUES ('Beef', FALSE),
+        ('Cheese', TRUE),
+        ('Grandma', FALSE),
+		('Sushi', FALSE),
+		('Tacco', FALSE),
+        ('Grandpa', TRUE);
+
+SELECT * FROM burgers;

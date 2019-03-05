@@ -1,47 +1,27 @@
 // Import the ORM to create functions that will interact with the database.
-var orm = require('../config/orm.js');
-
-var burger = {
-    all:function(cb){
-        orm.all('burgers', function(res){
-            cb(res);
-        });
-    },
-    update:function(id,cb){
-        orm.update('burgers', id, cb);
-    }
-}
-
-// Export the database functions for the controller (burgers_controller.js).
-module.exports = burger; 
-
-/* 
-// Import the ORM to create functions that will interact with the database.
 var orm = require("../config/orm.js");
 
-var cat = {
-  all: function(cb) {
-    orm.all("cats", function(res) {
+// Create the burger object and the CRUD methods from orm
+var burger = {
+  // Select all burger table entries
+  selectAll: function(cb) {
+    orm.selectAll("burgers", function(res) {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.create("cats", cols, vals, function(res) {
+  // The objColVals is an object specifying columns as object keys with associated values
+  updateOne: function(objColVals, condition, cb) {
+    orm.updateOne("burgers", objColVals, condition, function(res) {
       cb(res);
     });
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("cats", objColVals, condition, function(res) {
-      cb(res);
-    });
-  },
-  delete: function(condition, cb) {
-    orm.delete("cats", condition, function(res) {
+    // The variables cols and vals are arrays
+  insertOne: function(cols, vals, cb) {
+    orm.insertOne('burgers', cols, vals, function(res) {
       cb(res);
     });
   }
 };
 
-// Export the database functions for the controller (catsController.js).
-module.exports = cat;*/
+// Export the database functions for the controller (burgers_controller.js).
+module.exports = burger;

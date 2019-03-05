@@ -1,7 +1,7 @@
 //create boiler plate for node server
 
 var express = require('express');
-var bodyParser = require('body-parser'); //do I need this?
+var bodyParser = require('body-parser'); // included in Express
 var methodOverride = require('method-override');
 var exphbs = require('express-handlebars');
 
@@ -10,7 +10,9 @@ var PORT = process.env.PORT || 3000;
 
 // Serve static content for the app from the "public" directory in the application directory.
 
-app.use(express.static(__dirname + '/public')); 
+// app.use(express.static(__dirname + '/public')); 
+
+app.use(express.static(process.cwd() + '/public'));
 
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +20,7 @@ app.use(express.json());
 
 
 // override with POST having ?_method=DELETE
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method'))
 
 //register a Handlebars view engine using express-handlebars
 
