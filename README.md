@@ -9,7 +9,7 @@ The user may enter any burger name to add it to the menu. This also adds the new
 ![screenshot](public/assets/img/burgerapp.PNG)
 
 ## Demo
-The demo of the burger eating application can be found [!here](https://pacific-bayou-28835.herokuapp.com/).
+The demo of the burger eating application can be found [here](https://pacific-bayou-28835.herokuapp.com/).
 
 ## Installation
 To run the application locally, first clone this repository with the following command.
